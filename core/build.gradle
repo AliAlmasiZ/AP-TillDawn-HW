@@ -1,0 +1,40 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+eclipse.project.name = appName + '-core'
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
+
+dependencies {
+  api "com.badlogicgames.gdx:gdx:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+
+
+
+  implementation 'mysql:mysql-connector-java:8.0.33'
+
+
+
+  // Optional logging (Hibernate uses JBoss logging)
+  implementation 'org.jboss.logging:jboss-logging:3.4.1.Final'
+  implementation 'javax.persistence:javax.persistence-api:2.2'
+
+  // Hibernate ORM
+  implementation 'org.hibernate:hibernate-core:5.6.15.Final'
+
+  // H2 Database
+  implementation 'com.h2database:h2:2.1.214'
+
+  // JPA API (annotations)
+  implementation 'jakarta.persistence:jakarta.persistence-api:2.2.3'
+
+  // (optional) Logging—Hibernate uses slf4j
+  implementation 'org.slf4j:slf4j-simple:1.7.36'
+
+  // (optional) JUnit for testing
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+
+  if(enableGraalNative == 'true') {
+    implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
+  }
+}
+
